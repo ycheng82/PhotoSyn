@@ -62,6 +62,8 @@ OnConnectionFailedListener {
 	private static final int REQUEST_CODE_CREATOR = 2;
 	private static final int REQUEST_CODE_RESOLUTION = 3;
 	private boolean isConnected = false;
+	
+	String[] all_path;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -130,11 +132,19 @@ OnConnectionFailedListener {
 				//check if any images selected, and sync to google drive
 				Log.i(TAG, "sync---");
 				if (isConnected){
-					saveFileToDrive();
+					for (int i = 0; i < all_path.length;i++){
+						File imgFile = new  File(all_path[i]);
+						if(imgFile.exists()){
+							mBitmapToSave = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+							saveFileToDrive();
+						}
+					}
+					
 				}
 				
 			}
 		});
+
 
 	}
 
@@ -156,11 +166,12 @@ OnConnectionFailedListener {
 			}
 
 		} else if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
-			String[] all_path = data.getStringArrayExtra("all_path");
+			all_path = data.getStringArrayExtra("all_path");
 
 			ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
 
 			for (String string : all_path) {
+				Log.e("multiple file path: ", string);
 				CustomGallery item = new CustomGallery();
 				item.sdcardPath = string;
 
