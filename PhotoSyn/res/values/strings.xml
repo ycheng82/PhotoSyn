@@ -12,8 +12,17 @@
     <string name="btn_pick_mul">Pick From Gallery (Multiple)</string>
     <string name="btn_sync_all">Sync Entire Gallery</string>
     <string name="btn_sync_sec">Sync Selected Photos</string>
+    <string name="btn_sync_test">Sync Test</string>
     <string name="btn_download_photo">Download Photos from Google Drive to Gallery</string>
     <string name="btn_upload_photo">Upload Photos from Gallery to Google Drive</string>
+    <string name="btn_setting">Setting</string>
+    <string name="btn_view_model">View Model</string>
+    <string name="btn_share">Share with My Friends</string>
     <string name="tv_preview">Preview</string>
+    
+    <string name="upload_google_drive">Upload to Google Drive</string>
+    <string name="image_name">Title</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
 
 </resources>

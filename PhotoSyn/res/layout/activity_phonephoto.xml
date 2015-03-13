@@ -87,6 +87,15 @@
             android:layout_marginTop="5dp"
             android:background="@drawable/btn_sel"
             android:text="@string/btn_sync_sec" />
+
+        <Button
+            android:id="@+id/btnGallerySyncTest"
+            style="@style/btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_sel"
+            android:text="@string/btn_sync_test" />
     </LinearLayout>
 
 </LinearLayout>

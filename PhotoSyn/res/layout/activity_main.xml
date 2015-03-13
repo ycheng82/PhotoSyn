@@ -16,6 +16,7 @@
 
     <Button
         android:id="@+id/btn_Upload"
+        style="@style/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tv_intro"
@@ -23,18 +24,50 @@
         android:layout_marginTop="59dp"
         android:background="@drawable/btn_sel"
         android:onClick="showPhonePhoto"
-        style="@style/btn"
         android:text="@string/btn_upload_photo" />
 
     <Button
         android:id="@+id/btn_Downlaod"
+        style="@style/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tv_intro"
         android:layout_below="@+id/btn_upload"
         android:layout_marginTop="139dp"
         android:background="@drawable/btn_sel"
-        style="@style/btn"
         android:text="@string/btn_download_photo" />
+
+    <Button
+        android:id="@+id/btn_Setting"
+        style="@style/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_intro"
+        android:layout_below="@+id/btn_upload"
+        android:layout_marginTop="219dp"
+        android:background="@drawable/btn_sel"
+        android:text="@string/btn_setting" />
+
+    <Button
+        android:id="@+id/btn_View_Model"
+        style="@style/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_intro"
+        android:layout_below="@+id/btn_upload"
+        android:layout_marginTop="299dp"
+        android:background="@drawable/btn_sel"
+        android:text="@string/btn_view_model" />
+
+    <Button
+        android:id="@+id/btn_Share"
+        style="@style/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_intro"
+        android:layout_below="@+id/btn_upload"
+        android:layout_marginTop="379dp"
+        android:background="@drawable/btn_sel"
+        android:text="@string/btn_share" />
 
 </RelativeLayout>
