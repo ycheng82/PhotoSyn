@@ -89,7 +89,7 @@ public class PhonePhotoActivity extends Activity implements
 	private Spinner spFolder;
 
 	private boolean isFolderCreated = false;
-	private final String FOLDER_NAME = "PhotoSyn";
+	private final String FOLDER_NAME = "PhotoSyn2";
 	private String subFolderName;
 	DriveId parentFolderId;
 
@@ -548,7 +548,7 @@ public class PhonePhotoActivity extends Activity implements
 			for (Metadata m : buffer) {
 				Log.i(TAG, "Metadata name  " + m.getTitle());
 			}
-			parentFolderId = result.getMetadataBuffer().get(0).getDriveId();
+			
 			DriveFolder folder = Drive.DriveApi
 					.getRootFolder(getGoogleApiClient());
 			if (!isFolderCreated) {
@@ -557,6 +557,9 @@ public class PhonePhotoActivity extends Activity implements
 				folder.createFolder(getGoogleApiClient(), changeSet)
 						.setResultCallback(folderCreatedCallback);
 
+			}
+			else {
+				parentFolderId = result.getMetadataBuffer().get(0).getDriveId();
 			}
 
 		}
@@ -570,6 +573,7 @@ public class PhonePhotoActivity extends Activity implements
 				return;
 			}
 			showMessage("Folder succesfully created");
+			parentFolderId = result.getDriveFolder().getDriveId();
 		}
 	};
 
