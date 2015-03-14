@@ -205,6 +205,17 @@ public class PhonePhotoActivity extends Activity implements
 								EditText mEdit = (EditText) promptsView
 										.findViewById(R.id.et_name);
 								subFolderName = mEdit.getText().toString();
+								
+								for (int i = 0; i < all_path.length; i++) {
+									Log.e("multiple file path: ", all_path[i]);
+									File imgFile = new File(all_path[i]);
+									if (imgFile.exists()) {
+
+										mBitmapToSave = BitmapFactory.decodeFile(imgFile
+												.getAbsolutePath());
+										saveFileToDrive(subFolderName + i);
+									}
+								}
 							}
 						});
 
