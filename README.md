@@ -1,0 +1,2 @@
+# PhotoSyn
+In this project, I propose to develop an android application application (app afterwards) which uses online services such as google drive or public cloud for users to manage their photos online. Users are able to backup, categorize and transfer their photos across different devices. In the app, other functions (adding memo, mapping locations, etc.) are also provided. This work can be further extended to other mobile OS or desktop OS in the future.
