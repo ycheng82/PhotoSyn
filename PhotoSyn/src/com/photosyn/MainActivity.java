@@ -77,6 +77,16 @@ public class MainActivity extends ActionBarActivity{
 	    startActivity(phonePhotoIntent);
 
 	 }
+	
+	
+	/**
+	 * show photos from google drive
+	 * @param view
+	 */
+	public void showDrivePhoto(View view) {
+		Intent drivePhotoIntent = new Intent(this, DrivePhotoActivity.class);
+	    startActivity(drivePhotoIntent);
 
+	 }
 
 }

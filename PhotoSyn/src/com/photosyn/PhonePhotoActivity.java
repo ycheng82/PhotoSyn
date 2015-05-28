@@ -89,11 +89,12 @@ public class PhonePhotoActivity extends Activity implements
 	private Spinner spFolder;
 
 	private boolean isFolderCreated = false;
-	private final String FOLDER_NAME = "PhotoSyn2";
+	private final String FOLDER_NAME = "PhotoSyn";
 	private String subFolderName;
 	DriveId parentFolderId;
 
-	public static String EXISTING_FOLDER_ID, PHOTOSYN_FOLDER_ID;
+	public static String EXISTING_FOLDER_ID;
+	DriveId PHOTOSYN_FOLDER_ID;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -205,14 +206,15 @@ public class PhonePhotoActivity extends Activity implements
 								EditText mEdit = (EditText) promptsView
 										.findViewById(R.id.et_name);
 								subFolderName = mEdit.getText().toString();
-								
+
 								for (int i = 0; i < all_path.length; i++) {
 									Log.e("multiple file path: ", all_path[i]);
 									File imgFile = new File(all_path[i]);
 									if (imgFile.exists()) {
 
-										mBitmapToSave = BitmapFactory.decodeFile(imgFile
-												.getAbsolutePath());
+										mBitmapToSave = BitmapFactory
+												.decodeFile(imgFile
+														.getAbsolutePath());
 										saveFileToDrive(subFolderName + i);
 									}
 								}
@@ -350,17 +352,17 @@ public class PhonePhotoActivity extends Activity implements
 										+ result.getDriveFile().getDriveId());
 							}
 						};
-						/*Drive.DriveApi
-								.getRootFolder(getGoogleApiClient())
+						/*
+						 * Drive.DriveApi .getRootFolder(getGoogleApiClient())
+						 * .createFile(getGoogleApiClient(), metadataChangeSet,
+						 * driveContents) .setResultCallback(fileCallback);
+						 */
+						Drive.DriveApi
+								.getFolder(getGoogleApiClient(), parentFolderId)
 								.createFile(getGoogleApiClient(),
 										metadataChangeSet, driveContents)
-								.setResultCallback(fileCallback);*/
-						Drive.DriveApi
-						.getFolder(getGoogleApiClient(), parentFolderId)
-						.createFile(getGoogleApiClient(),
-								metadataChangeSet, driveContents)
-						.setResultCallback(fileCallback);
-						
+								.setResultCallback(fileCallback);
+
 					}
 				});
 	}
@@ -552,6 +554,7 @@ public class PhonePhotoActivity extends Activity implements
 			// CREATED
 			if (result.getMetadataBuffer().getCount() > 0) {
 				isFolderCreated = true;
+
 			}
 			showMessage("Successfully listed"
 					+ result.getMetadataBuffer().getCount() + " files.");
@@ -559,7 +562,7 @@ public class PhonePhotoActivity extends Activity implements
 			for (Metadata m : buffer) {
 				Log.i(TAG, "Metadata name  " + m.getTitle());
 			}
-			
+
 			DriveFolder folder = Drive.DriveApi
 					.getRootFolder(getGoogleApiClient());
 			if (!isFolderCreated) {
@@ -568,8 +571,7 @@ public class PhonePhotoActivity extends Activity implements
 				folder.createFolder(getGoogleApiClient(), changeSet)
 						.setResultCallback(folderCreatedCallback);
 
-			}
-			else {
+			} else {
 				parentFolderId = result.getMetadataBuffer().get(0).getDriveId();
 			}
 

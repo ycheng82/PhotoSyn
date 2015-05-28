@@ -35,6 +35,7 @@
         android:layout_below="@+id/btn_upload"
         android:layout_marginTop="139dp"
         android:background="@drawable/btn_sel"
+        android:onClick="showDrivePhoto"
         android:text="@string/btn_download_photo" />
 
     <Button
