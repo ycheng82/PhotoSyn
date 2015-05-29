@@ -40,7 +40,9 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -206,4 +208,12 @@ public class DrivePhotoActivity extends BaseDemoActivity {
 			}
 		}
 	}
+	
+	/**
+	 * save photo to the gallery
+	 * @param view
+	 */
+	public void savePhoto(View view) {
+		MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "my_photo" , "My photo test");
+	 }
 }

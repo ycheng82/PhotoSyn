@@ -24,5 +24,8 @@
     <string name="image_name">Title</string>
     <string name="btn_save">Save</string>
     <string name="btn_cancel">Cancel</string>
+    
+    <string name="btn_save_photo">Save Photo to Your Gallery</string>
+    
 
 </resources>
