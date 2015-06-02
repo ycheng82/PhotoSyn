@@ -206,6 +206,22 @@ public class PhonePhotoActivity extends Activity implements
 								EditText mEdit = (EditText) promptsView
 										.findViewById(R.id.et_name);
 								subFolderName = mEdit.getText().toString();
+						        DriveFolder folder = Drive.DriveApi.getFolder(getGoogleApiClient(), parentFolderId);
+						        MetadataChangeSet changeSet = new MetadataChangeSet.Builder()
+						                .setTitle(subFolderName).build();
+						        folder.createFolder(getGoogleApiClient(), changeSet).setResultCallback(folderCreatedCallback);
+
+						    ResultCallback<DriveFolderResult> folderCreatedCallback = new
+						            ResultCallback<DriveFolderResult>() {
+						        @Override
+						        public void onResult(DriveFolderResult result) {
+						            if (!result.getStatus().isSuccess()) {
+						                showMessage("Problem while trying to create a folder");
+						                return;
+						            }
+						            showMessage("Folder succesfully created");
+						        }
+						    };
 
 								for (int i = 0; i < all_path.length; i++) {
 									Log.e("multiple file path: ", all_path[i]);
