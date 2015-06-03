@@ -1,46 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".DrivePhotoActivity" 
+   >
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="61dp"
-        android:layout_toRightOf="@+id/linearLayout1"
-        android:orientation="vertical" >
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical" >
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnSavePhoto"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_alignTop="@+id/linearLayout1"
-        android:onClick="savePhoto"
-        android:text="@string/btn_save_photo" />
-
-    <ImageView
-        android:id="@+id/imageView1"
+    <com.photosyn.ui.HorizontalListView
+        android:id="@+id/horizon_listview"
         android:layout_width="match_parent"
+        android:layout_height="150dip"
+       android:layout_alignParentTop="true"
+        >
+    </com.photosyn.ui.HorizontalListView>
+    <ImageView 
+        android:id="@+id/image_preview"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/btnSavePhoto"
-        android:layout_marginTop="64dp"
-        android:src="@drawable/ic_drive_test" />
+        android:layout_below="@id/horizon_listview"
+        android:layout_centerInParent="true"
+      	android:clickable="true"
+        android:background="@drawable/selector_imageview_background"
+        />
+    <!-- android:background="@android:drawable/ic_menu_gallery" -->
 
 </RelativeLayout>
