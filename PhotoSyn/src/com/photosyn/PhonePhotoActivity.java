@@ -70,10 +70,9 @@ public class PhonePhotoActivity extends Activity implements
 	private GalleryAdapter adapter;
 
 	private ImageView imgSinglePick;
-	private Button btnGalleryPick;
 	private Button btnGalleryPickMul;
 
-	private Button btnSyncSec, btnSynAll, btnSyncTest;
+	private Button btnSyncTest;
 
 	private String action;
 	private ViewSwitcher viewSwitcher;
@@ -133,18 +132,6 @@ public class PhonePhotoActivity extends Activity implements
 
 		imgSinglePick = (ImageView) findViewById(R.id.imgSinglePick);
 
-		btnGalleryPick = (Button) findViewById(R.id.btnGalleryPick);
-		btnGalleryPick.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				Intent i = new Intent(Action.ACTION_PICK);
-				startActivityForResult(i, 100);
-
-			}
-		});
-
 		btnGalleryPickMul = (Button) findViewById(R.id.btnGalleryPickMul);
 		btnGalleryPickMul.setOnClickListener(new View.OnClickListener() {
 
@@ -152,34 +139,6 @@ public class PhonePhotoActivity extends Activity implements
 			public void onClick(View v) {
 				Intent i = new Intent(Action.ACTION_MULTIPLE_PICK);
 				startActivityForResult(i, 200);
-			}
-		});
-
-		btnSyncSec = (Button) findViewById(R.id.btnGallerySyncSec);
-		btnSyncSec.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// check if any images selected, and sync to google drive
-				Log.i(TAG, "sync---");
-				Log.i(TAG, "all_path.length is: " + all_path.length);
-				Log.i(TAG, "isConnected: " + isConnected);
-				if (isConnected) {
-					String folderName = subFolderName; // needs user input
-														// later
-					for (int i = 0; i < all_path.length; i++) {
-						Log.e("multiple file path: ", all_path[i]);
-						File imgFile = new File(all_path[i]);
-						if (imgFile.exists()) {
-
-							mBitmapToSave = BitmapFactory.decodeFile(imgFile
-									.getAbsolutePath());
-							saveFileToDrive(folderName + i);
-						}
-					}
-
-				}
-
 			}
 		});
 

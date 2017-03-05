@@ -63,14 +63,6 @@
         android:padding="5dp" >
 
         <Button
-            android:id="@+id/btnGalleryPick"
-            style="@style/btn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_sel"
-            android:text="@string/btn_pick" />
-
-        <Button
             android:id="@+id/btnGalleryPickMul"
             style="@style/btn"
             android:layout_width="fill_parent"
@@ -78,15 +70,6 @@
             android:layout_marginTop="5dp"
             android:background="@drawable/btn_sel"
             android:text="@string/btn_pick_mul" />
-
-        <Button
-            android:id="@+id/btnGallerySyncSec"
-            style="@style/btn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/btn_sel"
-            android:text="@string/btn_sync_sec" />
 
         <Button
             android:id="@+id/btnGallerySyncTest"
